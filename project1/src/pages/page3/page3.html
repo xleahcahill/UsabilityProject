@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Upload..</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="page3">
+  
+  <ion-item item-right>
+    <img src="{{ base64Image }}" /><br />
+    <button (click)="takePicture()">
+      <ion-icon name="camera" item-end></ion-icon>
+      Open Camera.
+    </button>
+  </ion-item>                               
+  <ion-list-header>
+    Create and post your recipe here...
+  </ion-list-header>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" stacked>Title:</ion-label>
+      <ion-input type="recipetitle" placeholder="Title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Ingredients:</ion-label>
+      <ion-input type="recipeingredients" placeholder="Seperate ingredients with commas"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Steps:</ion-label>
+      <ion-textarea placeholder="Enter the steps to make this recipe"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <br /><br />
+
+    <button ion-button color="default" (click)="doAlert()">Save and post </button>
+
+</ion-content>
+
+
+<!--https://blog.ionicframework.com/10-minutes-with-ionic-2-using-the-camera-with-ionic-native/-->
+<!--https://devdactic.com/ionic-2-images/-->
+<!---->
+<!--https://www.thepolyglotdeveloper.com/2016/04/use-the-device-camera-in-an-ionic-2-android-and-ios-app/-->

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="bluey">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Follow new users!</ion-title>
+
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of list">
+      <ion-avatar item-left>
+        <img src="{{item.picture.thumbnail}}">
+      </ion-avatar>
+      <h2>{{item.name.first}} {{item.name.last}}</h2>
+      <p>{{item.email}}</p>
+      <button ion-button item-right (click)="presentConfirm()">Follow</button>
+    </ion-item>
+  </ion-list>
+  <!--<ion-list>
+    <button ion-item *ngFor="let item1 of list">
+      {{ item1 }}
+    </button>
+  </ion-list>-->
+
+  <ion-footer>
+
+  </ion-footer>
+
+</ion-content>

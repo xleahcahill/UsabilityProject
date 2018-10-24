@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="bluey">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> User Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <form (submit)="doSubmit($event)" [formGroup]="langForm">
+    <ion-list radio-group formControlName="langs">
+
+      <ion-list-header color="settingsbg">
+        <h2> Select your Country</h2>
+      </ion-list-header>
+      <ion-item>
+        <ion-label>United Kingdom</ion-label>
+        <ion-radio value="uk"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ireland</ion-label>
+        <ion-radio value="ire"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>USA</ion-label>
+        <ion-radio value="usa"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Canada</ion-label>
+        <ion-radio value="cplusplus"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Australia</ion-label>
+        <ion-radio value="scala"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </form>
+  <ion-card>
+    <ion-list-header color="settingsbg">
+      <p>Click on the sections below to add information</p>
+    </ion-list-header>
+    <ion-item>
+      <ion-label fixed color="dark">Date of Birth</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <ion-label fixed color="dark">Gender</ion-label>
+        <ion-select [(ngModel)]="gender">
+          <ion-option value="f">Female</ion-option>
+          <ion-option value="m">Male</ion-option>
+          <ion-option value="prefernot">Prefer not to say</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-item>
+    <ion-label>Private Account</ion-label>
+    <ion-checkbox color="dark" checked="true"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+   
+    <button ion-button color="default" (click)="doAlert()"item-right>Save details </button>
+    </ion-item>
+</ion-content>

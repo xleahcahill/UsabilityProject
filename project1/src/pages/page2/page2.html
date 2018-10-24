@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-navbar color="reallyred">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Explore</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="food">
+      <ion-segment-button value="Recipes">
+        Recipes
+      </ion-segment-button>
+      <ion-segment-button value="Suggested">
+        Suggested
+      </ion-segment-button>
+      <ion-segment-button value="Search">
+        Search
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div [ngSwitch]="food">
+    <ion-list *ngSwitchCase="'Recipes'">
+      <ion-card>
+        <ion-card-header>
+          <h2>Discover newly added recipes</h2>
+        </ion-card-header>
+      </ion-card>
+      <ion-card>
+        <ion-col>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src=".../../../www/images/bbcgoodfood.jpg"> <h2>Frying pan pizza</h2>
+            </ion-avatar>
+            <button ion-button item-right clear [navPush]="pushPage"> View Recipe </button>
+          </ion-item>
+        </ion-col>
+      </ion-card>
+
+      <ion-card>
+        <ion-col>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src=".../../../www/images/bbcgoodfood3.jpg"> <h2>Red berry fruit compote</h2>
+            </ion-avatar>
+            <button ion-button item-right clear [navPush]="pushPage2"> View Recipe </button>
+          </ion-item>
+        </ion-col>
+      </ion-card>
+      <ion-card>
+        <ion-col>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src=".../../../www/images/stepone3.jpg" /> <h2>Brilliant banana loaf</h2>
+            </ion-avatar>
+            <button ion-button item-right clear [navPush]="pushPage3"> View Recipe </button>
+          </ion-item>
+        </ion-col>
+      </ion-card>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Suggested'">
+      <ion-item>
+        <ion-list-header color="dark">
+          <h2>Our suggested Content</h2>
+        </ion-list-header>
+        <ion-list ion-item *ngFor="let item2 of myItem2Page2">
+          <ion-item-sliding>
+            <ion-item color="settingsbg">
+              <ion-avatar item-start>
+                <img src="{{item2.img2}}" />
+              </ion-avatar><br />
+              <h2>{{item2.name}}</h2>
+              <p>
+                {{item2.caption}}
+              </p>
+            </ion-item>
+            <ion-item-options side="right">
+              <button ion-button color="default" (click)="doAlert()" (tap)="tapEvent($event)">
+                <ion-icon name="link"></ion-icon>
+                Save
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+          <ion-item>
+            Saved: {{tap}} times
+          </ion-item>
+        </ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item color="settingsbg">
+                <ion-icon name="alarm" item-start></ion-icon>
+                Prep Time: 5 mins.
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item color="settingsbg">
+                <ion-icon name="restaurant" item-start></ion-icon>
+                Skills: Easy
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-list-header color="dark">
+          <h2>Suggested User</h2>
+        </ion-list-header>
+        <ion-card ion-item *ngFor="let item3 of myItem3Page2">
+          <ion-col>
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="{{item3.userimg}}"> <h2>{{item3.username}}</h2>
+              </ion-avatar>
+              <button ion-button item-right (click)="presentConfirm()">Follow</button>
+            </ion-item>
+          </ion-col>
+        </ion-card>
+        <ion-buttons end>
+          <button ion-button [navPush]="pushPage4">
+            <ion-icon name="ios-people"></ion-icon>
+            Find more users to follow!
+          </button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Search'">
+      <p padding-left padding-right>Search here for recipes</p>
+      <!--<ion-searchbar placeholder="Search.." showCancelButton color="danger" (ionInput)="filterItems($event)"></ion-searchbar>
+        <ion-list>
+          <button ion-item *ngFor="let item of items">
+            {{ item }}
+          </button>
+        </ion-list>
+      </ion-list>-->
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      <ion-list>
+        <ion-item *ngFor="let item of items">
+          {{ item }}
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </div>
+  <!--on page-->
+  <ion-card>
+    <img src=".../../../www/images/header.jpg" />
+    <button ion-item *ngFor="let itemz of myList">
+      <ion-icon name="{{itemz.icon}}" item-start></ion-icon>
+      {{itemz.list}}
+    </button>
+
+  </ion-card>
+  <ion-card ion-item *ngFor="let item of myItemPage2s">
+    <img src="{{item.imgbackground}}">
+    <!--<div class="card-title">{{item.Title}}</div>-->
+  </ion-card>
+</ion-content>

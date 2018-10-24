@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="bluey">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Your Collections</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!--<!--<!--<ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item *ngFor="let item of myimg">
+          <ion-thumbnail item-start>
+            <img src="{{item}}">
+          </ion-thumbnail>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <!--<ion-item *ngFor="let item of myimg2">
+   <ion-item>{{item}}</ion-item>-->
+  <!--</ion-item>-->
+  <!--<ion-item *ngFor="let item of myTitle"><h3>{{item}}</h3></ion-item>
+      </ion-col>
+      <ion-col>
+        <button ion-button item-right clear> [navPush]="pushPage" View </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+  <ion-card ion-item *ngFor="let item of myimgs">
+
+    <img src="{{item.myimg}}" />
+    <ion-card-content>
+      <h2>{{item.title}}</h2> <p>
+        {{item.caption}}
+      </p><ion-note>11/12/2017</ion-note>
+    </ion-card-content>
+    <button ion-button clear> <!--item-right--> <!--clear>--> View Full Post </button>
+    <button ion-button clear> <!--item-right--> <!--clear--> Remove from collections </button>
+
+  </ion-card>
+</ion-content>

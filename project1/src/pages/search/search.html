@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="bluey">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Recipes</ion-title>
+
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <!--<form (ngSubmit)="setIngredient()">
+    <ion-item>
+      <ion-label>Search by ingredient:</ion-label>
+      <ion-input type="text" [(ngModel)]="searchInput" name="ingredient"></ion-input>
+    </ion-item>
+    <button ion-button icon-left block>
+      <ion-icon name="search"></ion-icon>
+      Find Recipe..
+    </button>
+  </form>-->
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+ 
+    <ion-item *ngFor="let item of items">
+      <ion-avatar item-left>
+        <img src="{{item.thumbnail}}">
+      </ion-avatar>
+      <h2>{{item.title}}</h2>
+      <p>{{item.ingredients}}</p>
+
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
